@@ -1,14 +1,86 @@
 {
   "name": "epdevio-wiki",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "High-level software documentation wiki with Markdown and Mermaid",
+  "author": "epdsn",
+  "main": "electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "electron": "electron .",
+    "electron:dev": "npm run build && electron .",
+    "pack": "npm run build:prod && electron-builder --dir",
+    "dist": "npm run build:prod && electron-builder",
+    "dist:win": "npm run build:prod && electron-builder --win",
+    "dist:mac": "npm run build:prod && electron-builder --mac",
+    "dist:linux": "npm run build:prod && electron-builder --linux"
   },
   "private": true,
+  "build": {
+    "appId": "com.epdevio.wiki",
+    "productName": "EPDevio Wiki",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "extraResources": [],
+    "forceCodeSigning": false,
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    }
+  },
   "packageManager": "npm@11.6.2",
   "dependencies": {
     "@angular/common": "^21.2.0",
@@ -27,6 +99,8 @@
     "@angular/build": "^21.2.0",
     "@angular/cli": "^21.2.0",
     "@angular/compiler-cli": "^21.2.0",
+    "electron": "^40.7.0",
+    "electron-builder": "^26.8.1",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2"
   }

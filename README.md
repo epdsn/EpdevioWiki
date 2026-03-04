@@ -17,7 +17,18 @@ A lightweight, Angular-based wiki for high-level software documentation. Documen
 | **Git links** | Link projects to their repositories |
 | **File-based content** | Store docs as `.md` files in your repo |
 
-## Quick Start
+## Download Installers
+
+| Platform | File | Description |
+|----------|------|-------------|
+| **Windows** | `EPDevio Wiki Setup 1.0.0.exe` | Installer with Start Menu & Desktop shortcut |
+| **Windows** | `EPDevio Wiki 1.0.0.exe` | Portable – run without installing |
+| **macOS** | `EPDevio Wiki-1.0.0.dmg` | Drag to Applications to install |
+| **Linux** | `EPDevio Wiki-1.0.0.AppImage` | Single executable, runs on most distros |
+
+Installers are built in the `release/` folder. See [Building installers](#building-installers) below.
+
+## Quick Start (Web / Development)
 
 ```bash
 # Clone the repository
@@ -32,6 +43,13 @@ npm start
 ```
 
 Open [http://localhost:4200](http://localhost:4200).
+
+## Quick Start (Desktop App)
+
+1. Download the installer for your platform from the [releases](https://github.com/epdsn/EpdevioWiki/releases) page (or build locally – see below).
+2. **Windows:** Run `EPDevio Wiki Setup 1.0.0.exe` to install, or `EPDevio Wiki 1.0.0.exe` for portable use.
+3. **macOS:** Open the `.dmg`, then drag EPDevio Wiki to your Applications folder.
+4. **Linux:** Make the AppImage executable (`chmod +x EPDevio\ Wiki-1.0.0.AppImage`), then run it.
 
 ## Project Structure
 
@@ -120,6 +138,38 @@ sequenceDiagram
 | `npm start` | Development server at http://localhost:4200 |
 | `npm run build` | Production build to `dist/` |
 | `npm run watch` | Build with watch mode |
+| `npm run electron` | Run desktop app (requires `npm run build` first) |
+| `npm run electron:dev` | Build and run desktop app |
+| `npm run dist` | Build installers for current OS |
+| `npm run dist:win` | Build Windows installer (`.exe`) |
+| `npm run dist:mac` | Build macOS installer (`.dmg`) |
+| `npm run dist:linux` | Build Linux AppImage |
+
+## Building installers
+
+From the `EPDevioWiki` folder:
+
+```bash
+cd EPDevioWiki
+
+# Windows (on Windows)
+npm run dist:win
+
+# macOS (on macOS)
+npm run dist:mac
+
+# Linux (on Linux)
+npm run dist:linux
+
+# All / current platform
+npm run dist
+```
+
+Output is written to `release/`:
+
+- **Windows:** `EPDevio Wiki Setup 1.0.0.exe` (installer), `EPDevio Wiki 1.0.0.exe` (portable)
+- **macOS:** `EPDevio Wiki-1.0.0.dmg`
+- **Linux:** `EPDevio Wiki-1.0.0.AppImage`
 
 ## Requirements
 
