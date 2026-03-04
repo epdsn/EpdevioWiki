@@ -1,0 +1,67 @@
+# EPDevio Wiki - Ignore install-specific and generated files
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# Dependencies - always reinstall on clone
+node_modules/
+
+# Build output
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# Angular
+.angular/cache/
+*.tsbuildinfo
+
+# IDE and editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.project
+.classpath
+*.launch
+.settings/
+*.sublime-workspace
+.c9/
+.history/
+
+# Environment and local config (install-specific)
+.env
+.env.local
+.env.*.local
+*.local
+.npmrc.local
+.yarnrc.local
+
+# Logs and debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Testing and coverage
+coverage/
+.nyc_output/
+__screenshots__/
+testem.log
+
+# Misc
+.sass-cache/
+connect.lock
+typings/
+libpeerconnection.log
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Optional: keep package-lock.json committed for reproducible installs
+# (not ignored - ensures consistent installs across clones)
