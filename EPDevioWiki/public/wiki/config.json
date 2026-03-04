@@ -1,0 +1,39 @@
+{
+  "projects": [
+    {
+      "id": "sample",
+      "title": "Sample Project",
+      "description": "Example project documentation with architecture diagrams",
+      "gitRepo": "https://github.com/example/sample-project",
+      "categories": [
+        {
+          "id": "overview",
+          "title": "Overview",
+          "pages": [
+            {
+              "id": "readme",
+              "title": "Getting Started",
+              "file": "wiki/projects/sample/overview/readme.md"
+            },
+            {
+              "id": "architecture",
+              "title": "Architecture",
+              "file": "wiki/projects/sample/overview/architecture.md"
+            }
+          ]
+        },
+        {
+          "id": "api",
+          "title": "API Reference",
+          "pages": [
+            {
+              "id": "endpoints",
+              "title": "API Endpoints",
+              "file": "wiki/projects/sample/api/endpoints.md"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
